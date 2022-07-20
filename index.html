@@ -46,7 +46,7 @@
             color: white
         }
         
-        #first>img {
+        #firs>img {
             width: 100%;
         }
         
@@ -95,7 +95,7 @@
             <p>ACCESSORIES</P>
         </div>
     </div>
-    <div id="first"><img src="https://www.reliancedigital.in/medias/Boot-Up-ICICI-Offer-Carousel-Banner-14-07-2022.jpg?context=bWFzdGVyfGltYWdlc3wyNTQ0MDh8aW1hZ2UvanBlZ3xpbWFnZXMvaDgxL2hmNS85ODYxNDY0NjIxMDg2LmpwZ3xmYzQzYzE3MTg1YTk5MjE5OWU4ZTE3ODYzNjU1ZmIxYzg1Mjc0YThjZmMyYWYxNGE2NjRmZjM2OTNkMTI5NDMx"
+    <div id="firs"><img src="https://www.reliancedigital.in/medias/Boot-Up-ICICI-Offer-Carousel-Banner-14-07-2022.jpg?context=bWFzdGVyfGltYWdlc3wyNTQ0MDh8aW1hZ2UvanBlZ3xpbWFnZXMvaDgxL2hmNS85ODYxNDY0NjIxMDg2LmpwZ3xmYzQzYzE3MTg1YTk5MjE5OWU4ZTE3ODYzNjU1ZmIxYzg1Mjc0YThjZmMyYWYxNGE2NjRmZjM2OTNkMTI5NDMx"
             alt=""></div>
     <div id="multi">
         <img id="crauser" src="https://www.reliancedigital.in/medias/Electronics-Fest-CLP-D-18.07.jpg?context=bWFzdGVyfGltYWdlc3wxMjE2ODB8aW1hZ2UvanBlZ3xpbWFnZXMvaDk3L2hmOS85ODYyNDMxNDA4MTU4LmpwZ3w1Mzk1MzMzMmI3MDg0OTc1ZWFiODkwNTk2ZTEwNDhhZGZhZTBmYWU3MDNhNjNmOGVkNWJkODk2OWFkZTFjNjhm"
@@ -104,6 +104,31 @@
         <button id="second">></button>
     </div>
 
+
 </body>
 
 </html>
+<script>
+    let imagesLink = ["https://www.reliancedigital.in/medias/Samsung-Galaxy-M52-Desktop-20.06.jpg?context=bWFzdGVyfGltYWdlc3wxMDgyNjF8aW1hZ2UvanBlZ3xpbWFnZXMvaDRmL2gwYy85ODYxOTc2NDkwMDE0LmpwZ3w5N2EzMDE4MWQ4ZTI5MmE1NDRkNjRlODJkYWNhNjJkYzQ5YzBiMDdjMThhYjhkOWU2MTAyM2YzZGQxNWIyYzk0",
+        "https://www.reliancedigital.in/medias/Umbrella-HDFC-Offer-Carousel-Banner-14-07-2022.jpg?context=bWFzdGVyfGltYWdlc3w3MzEyM3xpbWFnZS9qcGVnfGltYWdlcy9oYzIvaDQ1Lzk4NjA3MzU4NjA3NjYuanBnfGQ5MTIzMjUyNmEwNGI4MGZkZTRhOTkxYTUyZjNmMzFkOGYxYWU2MjZhOGJkMWMxM2NhODg2ZjlkNzViMWM4YjM",
+        "https://www.reliancedigital.in/medias/Audio-Accessories-Carousel-Banner-08-07-2022.jpg?context=bWFzdGVyfGltYWdlc3w2NjIyMXxpbWFnZS9qcGVnfGltYWdlcy9oNDAvaGRkLzk4NjE0OTk4MTM5MTguanBnfDFjY2I2NTI0NGJhYWM3Yjk0MDgxNWJjZjg1NGVlZjJjYzQ3N2E5M2ZmY2Y4MjdjMGEwNjgyZDU1YjgzYzkwNjI", "https://www.reliancedigital.in/medias/Washotsav-Carousel-Banners-D.jpg?context=bWFzdGVyfGltYWdlc3wxMTc0MTJ8aW1hZ2UvanBlZ3xpbWFnZXMvaGU0L2g4NS85ODYwNzM1NDY3NTUwLmpwZ3wyYmYyZDU2MWU0OGRkNGYzYTVlNDM3ZDRjMDUxMmZmY2RkYTFlOTVkYTc4NDVhOGY0MjE2NGViYmVkMzk3YTAy"
+    ]
+    let first = document.getElementById("first");
+    let second = document.getElementById("second");
+    let crauser = document.getElementById("crauser");
+    let imageState = 0;
+    second.addEventListener("click", function() {
+        imageState++;
+        if (imageState === imagesLink.length) {
+            imageState = 0;
+        }
+        crauser.src = imagesLink[imageState];
+    })
+    first.addEventListener("click", function() {
+        imageState--;
+        if (imageState < 0) {
+            imageState = imagesLink.length - 1;
+        }
+        crauser.src = imagesLink[imageState];
+    })
+</script>
