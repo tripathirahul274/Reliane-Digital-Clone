@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form>
+        <input type="text" id="name">
+        <input type="email" id="email">
+        <input type="password" id="password">
+        <input type="submit" value="signup">
+    </form>
+
+</body>
+
+</html>
+<script>
+    // console.log("hello")
+    let form = document.querySelector("form")
+    let signupLS = JSON.parse(localStorage.getItem("signup")) || []
+    form.addEventListener("submit", function(event) {
+        event.preventDefault();
+        // console.log("hello")
+        let obj = {
+                name: form.name.value,
+                email: form.email.value,
+                password: form.password.value
+            }
+            // console.log("hello")
+        signupLS.push(obj);
+        localStorage.setItem("signup", JSON.stringify(signupLS))
+        alert("hello")
+            // console.log("hello")
+    })
+</script>
