@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container {
+            display: flex;
+            background-color: #d9534f;
+            /* position: fixed; */
+            /* width: 100%; */
+            border: 0;
+            margin: 0;
+            /* z-index: 99; */
+        }
+        
+        #container>img {
+            margin-left: 0px;
+            margin-top: 0px;
+            /* border: none; */
+        }
+        
+        #container>div>p {
+            display: flex;
+            color: azure;
+        }
+        
+        #content>div {
+            border: 1px solid teal;
+            display: flex;
+            background-color: blue;
+            justify-content: space-evenly;
+            color: white;
+        }
+        
+        #footer {
+            padding-bottom: 200px;
+            display: flex;
+            border: 1px solid red;
+        }
+        
+        .grid-four-column {
+            width: 100%;
+            margin: auto;
+            display: flex;
+            justify-content: space-evenly;
+            background-color: rgb(4, 4, 73);
+            color: azure;
+            font-family: roberto;
+            font-size: 15px;
+        }
+        
+        #disclaimer {
+            background-color: darkblue;
+            padding-top: 10px;
+        }
+        
+        #disclaimer>div>p {
+            width: 95%;
+            margin: auto;
+            font-size: 15px;
+            color: azure;
+        }
+        
+        form {
+            width: 400px;
+            border: 1px solid rgb(230, 230, 230);
+            margin: 3% auto;
+            padding: 3%;
+            background: white;
+        }
+        
+        input,
+        select {
+            display: block;
+            margin: 15px 0px;
+            font-size: 20px;
+            padding: 2%;
+        }
+        
+        option {
+            font-size: 25px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <img src="https://www.reliancedigital.in/build/client/images/loaders/rd_logo.svg">
+
+
+
+    </div>
+    <div id="content">
+        <div>
+
+            <p>MOBILES&TABLETS^</p>
+            <p>TELEVISION</p>
+            <p>HEADPHONES&SPEAKERS</p>
+            <p>HOMEAPPLIANCES</p>
+            <p>COMPUTERS</p>
+            <p>CAMERAS</P>
+            <p>KITCHENAPPLIANCES</P>
+            <p>PERSONAL CARE</P>
+            <p>ACCESSORIES</P>
+        </div>
+        <form>
+            <input type="email" id="email" placeholder="enter email">
+            <input type="password" id="password" placeholder="password">
+            <input type="submit" value="signin">
+
+
+        </form>
+        <footer class="footer">
+            <div class=" grid-four-column">
+                <div class="f-about">
+                    <h3>
+                        PRODUCT CATEGORIES
+                    </h3>
+                    <h3>
+                        LAPTOPS
+                    </h3>
+                    <h3>DSLR cameras</h3>
+                    <h3>Televisions</h3>
+                    <h3>Air Conditioners</h3>
+                    <h3>Refrigerators</h3>
+                    <h3>Kitchen Appliances</h3>
+                    <h3>Accessories</h3>
+                    <h3>Personal Care & Grooming</h3>
+                    <h3>FOLLOW US</h3>
+
+                </div>
+                <div class="site-info">
+                    <h3>
+                        SITE INFO
+                    </h3>
+
+                    <h3>
+                        resQ Services
+                    </h3>
+                    <h3>Site Map</h3>
+                    <h3>Gift Cards</h3>
+                    <h3>Corporate Enquires</h3>
+                    <h3>Contact us</h3>
+                </div>
+                <div class="Resource">
+                    <h3>Product Reviews</h3>
+                    <h3>Buying Guides</h3>
+                    <h3>How Tos</h3>
+                    <h3>Featured Stories</h3>
+                    <h3>Events & Happenings</h3>
+                </div>
+                <div class="policy">
+                    <h3>FAQS</h3>
+                    <h3>Cancellation</h3>
+                    <h3>Pricing</h3>
+                    <h3>Privacy policy</h3>
+                    <h3>E-waste policy</h3>
+                    <h3>RelianceOne</h3>
+                </div>
+            </div>
+            <div id="disclaimer">
+                <div>
+                    <h2 style="text-align: center;color: azure;">
+                        <u>Disclaimer</u>
+                    </h2>
+                    <p> Product prices, offers and availability are subject to change from time to time. All prices are inclusive of taxes. Product colours & images are only for illustration and they may not exactly match with the actual product. Product
+                        specs are subject to change & may vary from actual product. While every care is taken to avoid inaccuracies in content, these are provided as is, without warranty of any kind</p>
+
+                    <p style="text-align: center;"> © 2022 Reliance Digital. All Rights Reserved.</p>
+                </div>
+            </div>
+
+        </footer>
+
+
+
+
+
+</body>
+
+</html>
+<script>
+    let form = document.querySelector("form");
+    let signupLS = JSON.parse(localStorage.getItem("signup")) || [];
+    form.addEventListener("submit", function(event) {
+        event.preventDefault();
+        if (signupLS.length === 0) {
+            alert("No user till Now");
+            return;
+        }
+        let obj = {
+            email: form.email.value,
+            password: form.password.value,
+        }
+        signupLS.forEach(function(ele) {
+            if (ele.email === obj.email && ele.password === obj.password) {
+                localStorage.setItem("signin", JSON.stringify(ele));
+                alert("login successful");
+                window.location.href = "index.html";
+
+            }
+        })
+        alert("user not found")
+    })
+</script>
