@@ -9,16 +9,28 @@
     <link rel="stylesheet" href="style.css" type="text/css" />
     <link rel="stylesheet" href="utils.css" type="text/css" />
     <style>
+        .location {
+            display: flex;
+        }
+        
+        .location>h3 {
+            justify-content: space-evenly;
+        }
+        
         #container {
             display: flex;
-            background-color: #d9534f
-            /* justify-content: space-around; */
+            background-color: #d9534f;
+            /* position: fixed; */
+            /* width: 100%; */
+            border: 0;
+            margin: 0;
+            /* z-index: 99; */
         }
         
         #container>div>img {
             margin-left: 40px;
             margin-top: 20px;
-            border: none;
+            /* border: none; */
         }
         
         #container>div+div {
@@ -43,7 +55,7 @@
             display: flex;
             background-color: blue;
             justify-content: space-evenly;
-            color: white
+            color: white;
         }
         
         #firs>img {
@@ -150,6 +162,34 @@
             /* border: 1px solid red; */
             gap: 10px;
         }
+        
+        #footer {
+            display: flex;
+            border: 1px solid red;
+        }
+        
+        .grid-four-column {
+            width: 100%;
+            margin: auto;
+            display: flex;
+            justify-content: space-evenly;
+            background-color: rgb(4, 4, 73);
+            color: azure;
+            font-family: roberto;
+            font-size: 15px;
+        }
+        
+        #disclaimer {
+            background-color: darkblue;
+            padding-top: 10px;
+        }
+        
+        #disclaimer>div>p {
+            width: 95%;
+            margin: auto;
+            font-size: 15px;
+            color: azure;
+        }
     </style>
 </head>
 
@@ -157,12 +197,16 @@
     <div id="container">
         <div><img src=https://www.reliancedigital.in/build/client/images/loaders/rd_logo.svg "" alt=""></div>
         <div><input type="text" placeholder="Find your favourite products" style="font-size:10pt;height:30px;width:480px;border-radius: 18px;"></div>
-        <div>
-            <p>Select your location</p>
+        <div class="location">
+            <h3> location</h3>
+            <h3>Cart</h3>
+            <h3>login</h3>
+
         </div>
     </div>
     <div id="content">
         <div>
+
             <p>MOBILES&TABLETS^</p>
             <p>TELEVISION</p>
             <p>HEADPHONES&SPEAKERS</p>
@@ -322,11 +366,68 @@
             <h1>Fully automatic</h1>
             <p> ₹16,990.00 MRP: ₹24,990.00 (Inclusive of all taxes) You Save: 32%(₹8,000) FREE Shipping!</p>
         </div>
-
-
-
-
     </div>
+    <footer class="footer">
+        <div class=" grid-four-column">
+            <div class="f-about">
+                <h3>
+                    PRODUCT CATEGORIES
+                </h3>
+                <h3>
+                    LAPTOPS
+                </h3>
+                <h3>DSLR cameras</h3>
+                <h3>Televisions</h3>
+                <h3>Air Conditioners</h3>
+                <h3>Refrigerators</h3>
+                <h3>Kitchen Appliances</h3>
+                <h3>Accessories</h3>
+                <h3>Personal Care & Grooming</h3>
+                <h3>FOLLOW US</h3>
+
+            </div>
+            <div class="site-info">
+                <h3>
+                    SITE INFO
+                </h3>
+
+                <h3>
+                    resQ Services
+                </h3>
+                <h3>Site Map</h3>
+                <h3>Gift Cards</h3>
+                <h3>Corporate Enquires</h3>
+                <h3>Contact us</h3>
+            </div>
+            <div class="Resource">
+                <h3>Product Reviews</h3>
+                <h3>Buying Guides</h3>
+                <h3>How Tos</h3>
+                <h3>Featured Stories</h3>
+                <h3>Events & Happenings</h3>
+            </div>
+            <div class="policy">
+                <h3>FAQS</h3>
+                <h3>Cancellation</h3>
+                <h3>Pricing</h3>
+                <h3>Privacy policy</h3>
+                <h3>E-waste policy</h3>
+                <h3>RelianceOne</h3>
+            </div>
+        </div>
+        <div id="disclaimer">
+            <div>
+                <h2 style="text-align: center;color: azure;">
+                    <u>Disclaimer</u>
+                </h2>
+                <p> Product prices, offers and availability are subject to change from time to time. All prices are inclusive of taxes. Product colours & images are only for illustration and they may not exactly match with the actual product. Product specs
+                    are subject to change & may vary from actual product. While every care is taken to avoid inaccuracies in content, these are provided as is, without warranty of any kind</p>
+
+                <p style="text-align: center;"> © 2022 Reliance Digital. All Rights Reserved.</p>
+            </div>
+        </div>
+
+    </footer>
 
 </body>
 
