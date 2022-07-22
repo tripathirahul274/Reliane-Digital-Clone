@@ -9,35 +9,39 @@
     <link rel="stylesheet" href="style.css" type="text/css" />
     <link rel="stylesheet" href="utils.css" type="text/css" />
     <style>
-        .location {
-            display: flex;
-            justify-content: space-between;
+        .navbar {
+            background-color: #e42529;
+            border-radius: 6px;
+            justify-content: space-around;
         }
         
-        .location>h3 {
-            justify-content: space-evenly;
-            display: flex;
+        .navbar ul {
+            overflow: auto;
         }
         
-        #container {
-            display: flex;
-            background-color: #d9534f;
-            /* position: fixed; */
-            /* width: 100%; */
-            border: 0;
-            margin: 0;
-            /* z-index: 99; */
+        .navbar li {
+            float: right;
+            list-style: none;
+            padding: 8px 8px;
+            color: white;
+            font-size: 20px;
+            margin: 13px 10px;
         }
         
-        #container>div>img {
-            margin-left: 40px;
-            margin-top: 20px;
-            /* border: none; */
+        .search {
+            color: white;
+            text-align: center;
+            padding-right: 80px;
+            margin: auto;
+            position: top;
         }
         
-        #container>div>p {
-            display: flex;
-            color: azure;
+        .navbar input {
+            border: 2px solid black;
+            font-size: 10pt;
+            height: 30px;
+            width: 50%;
+            border-radius: 18px;
         }
         
         #content>div {
@@ -184,16 +188,18 @@
 </head>
 
 <body>
-    <div id="container">
-        <div><img src="https://www.reliancedigital.in/build/client/images/loaders/rd_logo.svg"></div>
-        <div><input type="text" placeholder="Find your favourite products" style="font-size:10pt;height:30px;width:480px;border-radius: 18px;"></div>
-        <div class="location">
+    <header>
+        <nav class="navbar">
+            <ul>
+                <li> Select your Location</li>
+                <li><a href=""> Cart</a></li>
+                <li><a href="login.html"> Login</a></li>
 
-            <h3>Cart</h3>
-            <h3>login</h3>
-
-        </div>
-    </div>
+                <div class="reliance"><img src="https://www.reliancedigital.in/build/client/images/loaders/rd_logo.svg" alt=""></div>
+                <div class="search"> <input type="text" name="search" id="search" placeholder="Find your favourite products"></div>
+            </ul>
+        </nav>
+    </header>
     <div id="content">
         <div>
 
@@ -216,7 +222,7 @@
         <button id="first"><</button>
         <button id="second">></button>
     </div>
-    <h1>Best Deals on Latest Laptops|VIEW ALL</h1>
+    <h1>Best Deals on Latest Laptops| <a href=""> VIEW ALL</a></h1>
     <div id="laptop">
         <!-- <h1>Best Deals on Latest Laptops | View all</h1> -->
         <div><img src="https://www.reliancedigital.in/medias/Acer-15-Aspire3-R3-Laptop-492849812-i-1-1200Wx1200H-300Wx300H?context=bWFzdGVyfGltYWdlc3w2MjAwN3xpbWFnZS9qcGVnfGltYWdlcy9oM2MvaDMyLzk4NDEyMjc0OTc1MDIuanBnfDEwNjk4MWE3MTQ5MmY1YjJkMjE1NWYwMTFkNDlhMTViNmNkMmFjOGFjODE5NTEwYzdkZTA2MDJhYWM1MTVjYzI"
