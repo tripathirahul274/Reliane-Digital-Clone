@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .navbar {
+            background-color: #e42529;
+            border-radius: 6px;
+            justify-content: space-around;
+        }
+        
+        .navbar ul {
+            overflow: auto;
+        }
+        
+        .navbar li {
+            float: right;
+            list-style: none;
+            padding: 8px 8px;
+            color: white;
+            font-size: 20px;
+            margin: 13px 10px;
+        }
+        
+        .navbar li a {
+            text-decoration: none;
+            color: white;
+        }
+        
+        .search {
+            color: white;
+            text-align: center;
+            padding-right: 80px;
+            margin: auto;
+            position: top;
+        }
+        
+        .navbar input {
+            border: 2px solid black;
+            font-size: 10pt;
+            height: 30px;
+            width: 50%;
+            border-radius: 18px;
+        }
+        
+        #container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            width: 80%;
+            margin-top: 200px;
+            margin-left: 290px;
+            /* margin: auto; */
+        }
+        
+        #container>div>img {
+            width: 65%;
+        }
+        
+        #footer {
+            display: flex;
+            border: 1px solid red;
+        }
+        
+        .grid-four-column {
+            width: 100%;
+            margin: auto;
+            display: flex;
+            justify-content: space-evenly;
+            background-color: rgb(4, 4, 73);
+            color: azure;
+            font-family: roberto;
+            font-size: 15px;
+        }
+        
+        #disclaimer {
+            background-color: darkblue;
+            padding-top: 10px;
+        }
+        
+        #disclaimer>div>p {
+            width: 95%;
+            margin: auto;
+            font-size: 15px;
+            color: azure;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <ul>
+                <li> Select your Location</li>
+                <li><a href="cart.html"> Cart</a></li>
+                <li><a href="login.html"> Login</a></li>
+
+                <div class="reliance"><img src="https://www.reliancedigital.in/build/client/images/loaders/rd_logo.svg" alt=""></div>
+                <div class="search"> <input type="text" name="search" id="search" placeholder="Find your favourite products"></div>
+            </ul>
+        </nav>
+    </header>
+    <h1>Total Cart value <span id="total-price">0</span></h1>
+    <div id="container"></div>
+
+
+
+    <footer class="footer">
+        <div class=" grid-four-column">
+            <div class="f-about">
+                <h3>
+                    PRODUCT CATEGORIES
+                </h3>
+                <h3>
+                    LAPTOPS
+                </h3>
+                <h3>DSLR cameras</h3>
+                <h3>Televisions</h3>
+                <h3>Air Conditioners</h3>
+                <h3>Refrigerators</h3>
+                <h3>Kitchen Appliances</h3>
+                <h3>Accessories</h3>
+                <h3>Personal Care & Grooming</h3>
+                <h3>FOLLOW US</h3>
+
+            </div>
+            <div class="site-info">
+                <h3>
+                    SITE INFO
+                </h3>
+
+                <h3>
+                    resQ Services
+                </h3>
+                <h3>Site Map</h3>
+                <h3>Gift Cards</h3>
+                <h3>Corporate Enquires</h3>
+                <h3>Contact us</h3>
+            </div>
+            <div class="Resource">
+                <h3>Product Reviews</h3>
+                <h3>Buying Guides</h3>
+                <h3>How Tos</h3>
+                <h3>Featured Stories</h3>
+                <h3>Events & Happenings</h3>
+            </div>
+            <div class="policy">
+                <h3>FAQS</h3>
+                <h3>Cancellation</h3>
+                <h3>Pricing</h3>
+                <h3>Privacy policy</h3>
+                <h3>E-waste policy</h3>
+                <h3>RelianceOne</h3>
+            </div>
+        </div>
+        <div id="disclaimer">
+            <div>
+                <h2 style="text-align: center;color: azure;">
+                    <u>Disclaimer</u>
+                </h2>
+                <p> Product prices, offers and availability are subject to change from time to time. All prices are inclusive of taxes. Product colours & images are only for illustration and they may not exactly match with the actual product. Product specs
+                    are subject to change & may vary from actual product. While every care is taken to avoid inaccuracies in content, these are provided as is, without warranty of any kind</p>
+
+                <p style="text-align: center;"> © 2022 Reliance Digital. All Rights Reserved.</p>
+            </div>
+        </div>
+
+    </footer>
+
+</body>
+
+</html>
+<script>
+    let container = document.getElementById("container");
+
+    let cartLS = JSON.parse(localStorage.getItem("cart-page")) || []
+    let totalPrice = document.getElementById("total-price");
+
+    function
+    Display(data) {
+        container.innerHTML = null;
+        let total = 0;
+        data.forEach(function(ele, index) {
+            total += Number(ele.price)
+            let product = document.createElement("div");
+            let image_url = document.createElement("img");
+            image_url.src = ele.image_url;
+            let name = document.createElement("h1");
+            name.innerText = ele.name
+            let price = document.createElement("p");
+            price.innerText = ele.price // product.append(image_url, name, price);
+                // container.append(product);
+            let company = document.createElement("p");
+            company.innerText = ele.company;
+            let deleteBtn = document.createElement("button");
+            deleteBtn.innerText = "Delete";
+            deleteBtn.addEventListener("click", function() {
+                DeleteCart(index)
+
+            })
+            product.append(image_url, name, price, company, deleteBtn);
+            container.append(product);
+            totalPrice.textContent = total;
+        })
+    }
+
+    Display(cartLS);
+
+    function DeleteCart(index) {
+        let deletedCart = cartLS.filter(function(el, i) {
+            return i != index
+        })
+        Display(deletedCart);
+        localStorage.setItem("cart-page", JSON.stringify(deletedCart))
+    }
+</script>
